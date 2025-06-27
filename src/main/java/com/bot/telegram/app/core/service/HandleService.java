@@ -190,9 +190,8 @@ public class HandleService {
         lancDespesasMap.remove(chatId);
         categoriaMap.remove(chatId);
         cartoesMap.remove(chatId);
-        etapas.put(chatId, EtapasMenuPrincipal.INICIAR_BOT);
-
-
+        etapas.remove(chatId);
+        sendMessage("Bot encerrado");
     }
 
 

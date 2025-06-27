@@ -10,7 +10,8 @@ public enum EtapasMenuPrincipal {
     CADASTRO,
     NOVO_CADASTRO_CATEGORIA,
     NOVO_CADASTRO_CARTOES,
-    RELATORIO
+    RELATORIO,
+    HANDLER_REMOVE_ALL
 
 
 }

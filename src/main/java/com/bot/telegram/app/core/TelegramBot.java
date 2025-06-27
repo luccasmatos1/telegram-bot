@@ -135,24 +135,22 @@ public class TelegramBot extends TelegramLongPollingBot {
             String resposta = getMessage(update);
             Long chatId = getChatId(update);
 
-            System.out.println(resposta);
-            Despesas despesa = service.getDespesas().getOrDefault(chatId, new Despesas());
-            Categoria categoria = service.getCategoriaMap().getOrDefault(chatId, new Categoria());
-            Cartoes cartao = service.getCartoesMap().getOrDefault(chatId, new Cartoes());
-
+//            Despesas despesa = service.getDespesas().getOrDefault(chatId, new Despesas());
+//            Categoria categoria = service.getCategoriaMap().getOrDefault(chatId, new Categoria());
+//            Cartoes cartao = service.getCartoesMap().getOrDefault(chatId, new Cartoes());
 
             if (resposta.equals("/sair")) {
-                service.setMensagemAtual("bot encerrado");
-                sendMessage("Bot encerrado", chatId);
                 service.limparFluxos(chatId);
-                System.out.println(service.getLancDespesasMap().get(chatId));
+                return;
             }
 
-            EtapasMenuPrincipal etapa = service.getEtapas().getOrDefault(chatId, EtapasMenuPrincipal.INICIAR_BOT);
+            if (resposta.equals("/removeall")) {
+                service.getEtapas().put(chatId, EtapasMenuPrincipal.HANDLER_REMOVE_ALL);
+            }
 
 
             handler.stream()
-                   .filter(h -> h.getEtapa().equals(etapa))
+                   .filter(h -> h.getEtapa().equals(service.getEtapas().getOrDefault(chatId, EtapasMenuPrincipal.INICIAR_BOT)))
                    .findFirst()
                    .ifPresent(e -> {
                        e.setarChatId(chatId);

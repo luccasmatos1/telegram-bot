@@ -17,6 +17,10 @@ public class CategoriaService {
     private final CategoriaRepository repository;
 
 
+    public void removeAll() {
+        repository.deleteAll();
+    }
+
     public void salvar (CategoriaRequest request){
         Categoria categoria = new Categoria();
         categoria.setId(new Random().nextLong());

@@ -28,4 +28,8 @@ public class ReceitasService {
     public List<Receitas> findByCategoria (Categoria categoria) {
         return repository.findByCategoria(categoria);
     }
+
+    public void removeAll() {
+        repository.deleteAll();
+    }
 }

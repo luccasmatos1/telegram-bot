@@ -107,6 +107,10 @@ public class DespesasService {
         return repository.findByCategoria(categoria);
     }
 
+    public void removeAll() {
+        repository.deleteAll();
+    }
+
 
 
 }

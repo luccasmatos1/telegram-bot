@@ -39,5 +39,8 @@ public class CartoesService {
         return repository.findByNome(nome).orElse(null);
     }
 
+    public void removeAll() {
+        repository.deleteAll();
+    }
 
 }

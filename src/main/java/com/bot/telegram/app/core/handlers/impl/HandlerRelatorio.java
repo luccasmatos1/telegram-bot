@@ -24,6 +24,7 @@ public class HandlerRelatorio implements Handler {
         System.out.println("Relatorio referencia "  + message);
 
         handleService.proximaMensagem(relatorioService.relatorioGeral(message));
+        handleService.limparFluxos(handleService.getChatId());
     }
 
     @Override
