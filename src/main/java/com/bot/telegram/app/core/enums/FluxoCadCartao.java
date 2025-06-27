@@ -1,0 +1,9 @@
+package com.bot.telegram.app.core.enums;
+
+public enum FluxoCadCartao {
+
+    CAD_CARTAO_INFORMAR_NOME,
+    CAD_CARTAO_INFORMAR_DIA_FECHAMENTO,
+    CAD_CARTAO_INFORMAR_DIA_PRIMEIRO_VENCIMENTO,
+    FINALIZAR_CADASTRO_CARTAO
+}

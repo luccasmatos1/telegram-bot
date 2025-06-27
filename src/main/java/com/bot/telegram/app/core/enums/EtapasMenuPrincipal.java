@@ -1,0 +1,16 @@
+package com.bot.telegram.app.core.enums;
+
+public enum EtapasMenuPrincipal {
+
+    HANDLER_NOVO_LANCAMENTO,
+    HANDLER_LANCAR_RECEITA,
+    HANDLER_LANCAR_DESPESA,
+    INICIAR_BOT,
+    SELECIONAR_MENU,
+    CADASTRO,
+    NOVO_CADASTRO_CATEGORIA,
+    NOVO_CADASTRO_CARTOES,
+    RELATORIO
+
+
+}
