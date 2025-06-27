@@ -7,6 +7,7 @@ import com.bot.telegram.app.domain.model.Cartoes;
 import com.bot.telegram.app.domain.model.Categoria;
 import com.bot.telegram.app.domain.model.Despesas;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -27,6 +28,11 @@ public class TelegramBot extends TelegramLongPollingBot {
     private final HandleService service;
     private final List<Handler> handler;
 
+    @Value("${bot.token}")
+    private String token;
+    @Value("${bot.username}")
+    private String username;
+
     public TelegramBot(DefaultBotOptions options, HandleService service, List<Handler> handler) {
         super(options);
         this.service = service;
@@ -37,11 +43,11 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "contegastoslucasbot";
+        return username;
     }
 
     public String getBotToken() {
-        return "7402982159:AAFOxKvvpeb454mCk66MrUyi2rhSbB_0XeI";
+        return token;
     }
 
 
